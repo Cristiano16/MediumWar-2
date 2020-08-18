@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/harpy(1).png-a1fded15523ec5397bea843c30b2a2d6.stex"
+path="res://.import/orc0 - Copy.png-08e7cb9bfc5b0474b6ade9816c547c59.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gameAssets/harpy(1).png"
-dest_files=[ "res://.import/harpy(1).png-a1fded15523ec5397bea843c30b2a2d6.stex" ]
+source_file="res://Assets/gameAssets/orc0 - Copy.png"
+dest_files=[ "res://.import/orc0 - Copy.png-08e7cb9bfc5b0474b6ade9816c547c59.stex" ]
 
 [params]
 

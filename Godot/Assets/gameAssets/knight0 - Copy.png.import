@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/harpy(1).png-a1fded15523ec5397bea843c30b2a2d6.stex"
+path="res://.import/knight0 - Copy.png-6dd91c12868af247e71b927e4342c53b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gameAssets/harpy(1).png"
-dest_files=[ "res://.import/harpy(1).png-a1fded15523ec5397bea843c30b2a2d6.stex" ]
+source_file="res://Assets/gameAssets/knight0 - Copy.png"
+dest_files=[ "res://.import/knight0 - Copy.png-6dd91c12868af247e71b927e4342c53b.stex" ]
 
 [params]
 
