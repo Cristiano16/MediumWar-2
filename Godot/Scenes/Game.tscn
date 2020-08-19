@@ -60,4 +60,5 @@ cell_size = Vector2( 80, 92 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0 )
 
-[node name="Node2D" type="Node2D" parent="Banco"]
+[node name="Jogador" type="Node2D" parent="."]
+position = Vector2( 319.556, 0 )
