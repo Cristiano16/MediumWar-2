@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/archer0 - Copy - Copy.png-2297dc54a098023c65c031f6bccec7b6.stex"
+path="res://.import/archer0 - Copy.png-7c0d00f8b55faa0a99dfc2d3d5e2bfbc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gameAssets/archer0 - Copy - Copy.png"
-dest_files=[ "res://.import/archer0 - Copy - Copy.png-2297dc54a098023c65c031f6bccec7b6.stex" ]
+source_file="res://Assets/gameAssets/archer0 - Copy.png"
+dest_files=[ "res://.import/archer0 - Copy.png-7c0d00f8b55faa0a99dfc2d3d5e2bfbc.stex" ]
 
 [params]
 

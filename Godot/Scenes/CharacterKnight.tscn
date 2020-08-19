@@ -25,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Move"
-length = 0.6
+length = 0.45
 loop = true
 step = 0.15
 tracks/0/type = "value"
@@ -35,10 +35,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1, 2 ]
 }
 
 [node name="CharacterKnight" type="KinematicBody2D"]
@@ -56,4 +56,4 @@ position = Vector2( 2.38109, -0.89291 )
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 2
-frame = 1
+frame = 3
