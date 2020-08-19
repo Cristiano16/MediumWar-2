@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/gameAssets/harpy(1).png" type="Texture" id=1]
+[ext_resource path="res://Scripts/HarpyScript.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.04469, 7.94437 )
+extents = Vector2( 16.0809, 16.179 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Attack"
@@ -41,9 +42,10 @@ tracks/0/keys = {
 }
 
 [node name="CharacterHarpy" type="KinematicBody2D"]
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -0.892906 )
+position = Vector2( -7.62939e-06, -0.0992124 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -51,8 +53,14 @@ anims/Attack = SubResource( 2 )
 anims/Move = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -1.09133 )
+position = Vector2( 0, -0.198416 )
+scale = Vector2( 2, 2 )
+z_index = 2
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
-frame = 3
+frame = 8
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="tween_started" from="Tween" to="." method="_on_Tween_tween_started"]

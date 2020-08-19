@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/gameAssets/wizard0 - Copy.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/WizardScript.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.06833, 7.94437 )
+extents = Vector2( 9.92972, 16.0798 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Attack"
@@ -42,9 +43,11 @@ tracks/0/keys = {
 }
 
 [node name="CharacterWizard" type="KinematicBody2D"]
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.09134, -0.793695 )
+position = Vector2( 1.98425, -0.694484 )
+z_index = 2
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -52,8 +55,13 @@ anims/Attack = SubResource( 2 )
 anims/Move = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 4.16692, -0.694485 )
+position = Vector2( 8.0362, -0.694483 )
+scale = Vector2( 2, 2 )
+z_index = 2
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 3
-frame = 5
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="tween_started" from="Tween" to="." method="_on_Tween_tween_started"]
