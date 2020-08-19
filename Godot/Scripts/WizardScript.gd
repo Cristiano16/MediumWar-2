@@ -1,7 +1,7 @@
 extends "res://Scripts//ArcherScript.gd"
 
 # Declare member variables here. Examples:
-export var mySpeed = 0.2
+export var mySpeed = 0.8
 
 # Called when the node enters the scene tree for the first time.
 func getSpeed():
