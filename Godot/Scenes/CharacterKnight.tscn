@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/gameAssets/knight0 - Copy.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.96123, 7.94437 )
+extents = Vector2( 12.1124, 15.8814 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Attack"
@@ -44,7 +44,7 @@ tracks/0/keys = {
 [node name="CharacterKnight" type="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.198425, -0.89291 )
+position = Vector2( 3.8147e-06, -0.694487 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -52,8 +52,8 @@ anims/Attack = SubResource( 2 )
 anims/Move = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2.38109, -0.89291 )
+position = Vector2( 4.0677, -0.595272 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 2
-frame = 3
