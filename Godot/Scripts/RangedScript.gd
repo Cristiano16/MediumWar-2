@@ -25,3 +25,8 @@ func _on_Tween_tween_completed(object, key):
 func moveForAttack(dir):
 	move_tween(dir)
 	get_tree().get_root().get_node("Tabuleiro").move(self,dir)
+
+func receiveDamage(damage):
+	life=life-(damage-(damage*(endurance/100)))
+	if life<0:
+		get_tree().get_root().get_node("Tabuleiro").die(self)
