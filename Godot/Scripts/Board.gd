@@ -15,6 +15,7 @@ func die(id):
 	var coord=tilemap.world_to_map(id.global_position)
 	if coord[0]<10 and coord[0]>=0 and coord[1]<10 and coord[1]>=0:
 		matrix[coord[0]][coord[1]]=null
+
 func move(id,dir):
 	var coord=tilemap.world_to_map(id.global_position)
 	if coord[0]<10 and coord[0]>=0 and coord[1]<10 and coord[1]>=0 and matrix[coord[0]+dir[0]][coord[1]+dir[1]]==null:
