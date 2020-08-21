@@ -1,14 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Bank.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/gameAssets/background.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/CharacterKnight.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/CharacterWizard.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/CharacterArcher.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/CharacterHarpy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/CharacterOrc.tscn" type="PackedScene" id=9]
 
 [node name="Game" type="Node"]
 
@@ -25,18 +20,3 @@ position = Vector2( 748.556, 0 )
 position = Vector2( 511.63, 298.811 )
 scale = Vector2( 1.06527, 1.1018 )
 texture = ExtResource( 4 )
-
-[node name="CharacterHarpy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 330.6, 369.843 )
-
-[node name="CharacterKnight" parent="." instance=ExtResource( 5 )]
-position = Vector2( 330.6, 292.545 )
-
-[node name="CharacterOrc" parent="." instance=ExtResource( 9 )]
-position = Vector2( 332.978, 329.41 )
-
-[node name="CharacterWizard" parent="." instance=ExtResource( 6 )]
-position = Vector2( 332.978, 210.49 )
-
-[node name="Character" parent="." instance=ExtResource( 7 )]
-position = Vector2( 330.6, 250.923 )
