@@ -4,7 +4,7 @@ onready var matrix=[[],[],[],[],[],[],[],[],[],[]]
 onready var tilemap=$TileMap
 func _ready():
 	for i in matrix:
-		for j in range(10):
+		for _j in range(10):
 			i.append(null)
 
 
