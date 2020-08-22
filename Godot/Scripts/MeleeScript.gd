@@ -26,6 +26,7 @@ func moveForAttack(dir):
 	get_tree().get_root().get_node("Tabuleiro").move(self,dir)
 
 func attack(id):
+	$AnimationPlayer.play("Attack")
 	id.receiveDamage(damage)
 
 func receiveDamage(damage):

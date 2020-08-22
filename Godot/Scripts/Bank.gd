@@ -24,6 +24,3 @@ func show():
 		showing[i].global_position=$TileMap.map_to_world(Vector2(i,0))+$TileMap.global_position+Vector2(40,45)
 		showing[i].get_node("Sprite").scale.x=4
 		showing[i].get_node("Sprite").scale.y=4
-		
-	
-	
