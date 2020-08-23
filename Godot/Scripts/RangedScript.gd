@@ -26,6 +26,11 @@ func moveForAttack(dir):
 	move_tween(dir)
 	get_tree().get_root().get_node("Tabuleiro").move(self,dir)
 
+func attack(id):
+	$AnimationPlayer.play("Attack")
+	get_tree().get_root().get_node("Tabuleiro").createProjectile(self, id)
+	
+
 func receiveDamage(damage):
 	life=life-(damage-(damage*(endurance/100)))
 	if life<0:

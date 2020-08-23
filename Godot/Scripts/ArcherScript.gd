@@ -8,6 +8,9 @@ func defineCharacteristics():
 	damage=10
 	endurance=5
 	reach=6
+	purchaseValue=3
+	saleValue=1
+	giftValue=2
 
 func _ready():
 	defineCharacteristics()

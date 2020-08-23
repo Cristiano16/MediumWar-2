@@ -6,7 +6,9 @@ var life
 var damage
 var endurance
 var reach
-var player
+var purchaseValue
+var	saleValue
+var giftValue
 
 func run():
 	$AnimationPlayer.play("Move")

@@ -33,3 +33,4 @@ func receiveDamage(damage):
 	life=life-(damage-(damage*(endurance/100)))
 	if life<0:
 		get_tree().get_root().get_node("Tabuleiro").die(self)
+		#Bonifica jogador adversário

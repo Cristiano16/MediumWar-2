@@ -7,7 +7,6 @@ func _ready():
 		for _j in range(10):
 			i.append(null)
 
-
 func getPeca(x,y):
 	return matrix[x][y]
 
@@ -31,7 +30,7 @@ func action(id):
 	var enemy = null
 	for i in matrix:
 		for j in range(10):
-			if(matrix[i][j]!=null and matrix[i][j].player!=id.player):
+			if(matrix[i][j]!=null and not matrix[i][j].is_in_group("player%s"%id)):
 				if(enemy==null):
 					enemy = matrix[i][j]
 				else:
