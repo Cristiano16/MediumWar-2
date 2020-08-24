@@ -4,7 +4,59 @@ var disponible=[null,null,null]
 var showing=[null,null,null]
 func _ready():
 	show()
-
+var cursor1=0
+var cursor2=2
+var activated1=false
+var activated2=false
+var last_cursor1
+var last_cursor2
+var changed1=false
+var changed2=false
+func _process(delta):
+	if Input.is_action_just_released("buy1"):
+		cursor1=0
+		last_cursor1=0
+		activated1=true
+		if cursor2!=0:
+			$TileMap.set_cell(0,0,1)
+		else :
+			$TileMap.set_cell(0,0,3)
+	if Input.is_action_just_released("buy2"):
+		cursor2=2
+		activated2=true
+		if cursor1!=2:
+			$TileMap.set_cell(2,0,2)
+		else :
+			$TileMap.set_cell(2,0,3)
+	if Input.is_action_just_pressed("left1"):
+		
+		changed1=true
+		last_cursor1=cursor1
+		if cursor1!=0:
+			cursor1+=-1
+		else:
+			cursor1=2
+	elif Input.is_action_just_pressed("right1"):
+		
+		changed1=true
+		last_cursor1=cursor1
+		if cursor1!=2:
+			cursor1+=1
+		else:
+			cursor1=0
+	else :
+		changed1=false
+	if changed1 and activated1:
+		
+		if (cursor2==last_cursor1 and activated2):
+			$TileMap.set_cell(last_cursor1,0,2)
+		else:
+			print(last_cursor1)
+			$TileMap.set_cell(last_cursor1,0,0)
+		if (cursor2==cursor1 and activated2):
+			$TileMap.set_cell(cursor1,0,3)
+		else:
+			$TileMap.set_cell(cursor1,0,1)
 func buy(index,player):
 
 	var obj=disponible[index][0].instance()

@@ -46,8 +46,8 @@ func _process(delta):
 		changed=false
 	if Input.is_action_just_released("action%s"%id):
 		activated=true
-		
 		cursor_position=[0,0]
+		$TileMap.set_cell(cursor_position[0],cursor_position[1],id)
 		changed=false
 	if changed and activated:
 		$TileMap.set_cell(cursor_last_position[0],cursor_last_position[1],0)
