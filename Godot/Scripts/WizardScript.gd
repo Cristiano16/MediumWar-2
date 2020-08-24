@@ -14,3 +14,9 @@ func defineCharacteristics():
 
 func _ready():
 	defineCharacteristics()
+#	moveOrAttack()
+
+func attack(id):
+	$AnimationPlayer.play("Attack")
+	get_tree().get_root().get_node("ProjectileMagic").start(self, id)
+

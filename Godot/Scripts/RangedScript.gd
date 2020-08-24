@@ -20,12 +20,7 @@ func _on_Tween_tween_completed(object, key):
 
 func moveForAttack(dir):
 	move_tween(dir)
-	get_tree().get_root().get_node("Tabuleiro").move(self,dir)
-
-func attack(id):
-	$AnimationPlayer.play("Attack")
-	get_tree().get_root().get_node("Tabuleiro").createProjectile(self, id)
-	
+	get_tree().get_root().get_node("Tabuleiro").move(self,dir)	
 
 func receiveDamage(damage):
 	life=life-(damage-(damage*(endurance/100)))

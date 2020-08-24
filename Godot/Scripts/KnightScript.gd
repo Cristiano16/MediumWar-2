@@ -14,3 +14,4 @@ func defineCharacteristics():
 	
 func _ready():
 	defineCharacteristics()
+	#moveOrAttack()
