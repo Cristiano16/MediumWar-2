@@ -57,8 +57,56 @@ func _process(delta):
 			$TileMap.set_cell(cursor1,0,3)
 		else:
 			$TileMap.set_cell(cursor1,0,1)
-func buy(index,player):
-
+	if Input.is_action_just_pressed("left2"):
+		
+		changed2=true
+		last_cursor2=cursor2
+		if cursor2!=0:
+			cursor2+=-1
+		else:
+			cursor2=2
+	elif Input.is_action_just_pressed("right2"):
+		
+		changed2=true
+		last_cursor2=cursor2
+		if cursor2!=2:
+			cursor2+=1
+		else:
+			cursor2=0
+	else :
+		changed2=false
+	if changed2 and activated2:
+		
+		if (cursor1==last_cursor2 and activated1):
+			$TileMap.set_cell(last_cursor2,0,1)
+		else:
+			
+			$TileMap.set_cell(last_cursor2,0,0)
+		if (cursor1==cursor2 and activated1):
+			$TileMap.set_cell(cursor2,0,3)
+		else:
+			$TileMap.set_cell(cursor2,0,2)
+func buy(player_id,player):
+	var index=-1
+	if player_id==1:
+		index=cursor1
+		activated1=false
+		if (cursor1==cursor2 and activated2):
+			$TileMap.set_cell(cursor1,0,2)
+		else:
+			
+			$TileMap.set_cell(cursor1,0,0)
+	elif player_id==2:
+		index=cursor2
+		activated2=false
+		if (cursor1==cursor2 and activated1):
+			$TileMap.set_cell(cursor2,0,1)
+		else:
+			
+			$TileMap.set_cell(cursor2,0,0)
+	else :
+		print("buy error")
+		return
 	var obj=disponible[index][0].instance()
 	if obj !=null:
 		player.pay(disponible[index][1])
