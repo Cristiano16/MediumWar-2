@@ -51,7 +51,7 @@ func _process(delta):
 		if (cursor2==last_cursor1 and activated2):
 			$TileMap.set_cell(last_cursor1,0,2)
 		else:
-			print(last_cursor1)
+			
 			$TileMap.set_cell(last_cursor1,0,0)
 		if (cursor2==cursor1 and activated2):
 			$TileMap.set_cell(cursor1,0,3)
@@ -106,12 +106,13 @@ func buy(player_id,player):
 			$TileMap.set_cell(cursor2,0,0)
 	else :
 		print("buy error")
-		return
+		return null
 	var obj=disponible[index][0].instance()
-	if obj !=null:
+	if obj !=null and player.gold>=disponible[index][1]:
 		player.pay(disponible[index][1])
-	return obj
-
+		return obj
+	else :	
+		return null
 func show():
 	
 	for i in range(3):
