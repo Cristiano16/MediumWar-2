@@ -1,8 +1,9 @@
 extends "res://Scripts/Projectile.gd"
 
-export var myspeed = 20
+export var myspeed = 30
 
-func _ready():
+func _init():
+	print("criando flecha")
 	speed=myspeed
 
 func _on_ProjectileArrow_body_entered(body):

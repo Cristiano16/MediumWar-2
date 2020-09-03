@@ -30,27 +30,24 @@ func action(id):
 	var enemy = null
 	for i in matrix:
 		for j in range(10):
-			if(matrix[i][j]!=null and not matrix[i][j].is_in_group("player%s"%id)):
+			if(i[j]!=null and not i[j].is_in_group("player%s"%id)):
 				if(enemy==null):
-					enemy = matrix[i][j]
+					enemy = i[j]
 				else:
-					if(distance(matrix[i][j],id)<distance(enemy,id)):
-						enemy=matrix[i][j]
-	if(distance(enemy,id)<=id.reach):
+					if(distance(i[j],id)<distance(enemy,id)):
+						enemy=i[j]
+	if(enemy!=null and distance(enemy,id)<=id.reach):
 		return [null, enemy]
 	else:
-		var dir;
-		var coordEnemy=tilemap.world_to_map(enemy.global_position)
-		var coordOwn=tilemap.world_to_map(id.global_position)
-		if(abs(coordEnemy[0]-coordOwn[0])>=abs(coordEnemy[1]-coordOwn[1])):
-			if(coordEnemy[0]>coordOwn[0]):
-				dir = Vector2(1,0);
-			else:
-				dir = Vector2(-1,0);
-			return[dir, null]
-		else:
-			if(coordEnemy[1]>coordOwn[1]):
-				dir = Vector2(0,1);
-			else:
-				dir = Vector2(0,-1);
-			return[dir, null]
+		#Seleciona uma posição aleatoria para o personagem se mover
+		randomize()
+		var dir = int(rand_range(0,4))
+		if(dir==0):
+			dir = Vector2(1,0);
+		elif(dir==1):
+			dir = Vector2(-1,0);
+		elif(dir==2):
+			dir = Vector2(0,1);
+		elif(dir==3):
+			dir = Vector2(0,-1);
+		return[dir, null]

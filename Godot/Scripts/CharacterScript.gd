@@ -9,6 +9,7 @@ var reach
 var purchaseValue
 var	saleValue
 var giftValue
+var attackSpeed
 
 func run():
 	$AnimationPlayer.play("Move")
@@ -17,12 +18,12 @@ func stop():
 	$AnimationPlayer.stop()
 
 func moveOrAttack():
-	if(get_tree().get_root().get_node("Tabuleiro")!=null and get_tree().get_root().get_node("Tabuleiro").action(self)[0]!=null):	#Função action no tabuleiro retorna um vetor com direção e id da peça inimiga. Estou supondo que ela recebe o id da peça que a chama
+	if(get_tree().get_root().get_node("Game").get_node("Tabuleiro")!=null and get_tree().get_root().get_node("Game").get_node("Tabuleiro").action(self)[0]!=null):	#Função action no tabuleiro retorna um vetor com direção e id da peça inimiga. Estou supondo que ela recebe o id da peça que a chama
 		print("move")
-		moveForAttack(get_tree().get_root().get_node("Tabuleiro").action(self)[0])
+		moveForAttack(get_tree().get_root().get_node("Game").get_node("Tabuleiro").action(self)[0])
 	else:
 		print("attack")
-		attack(get_tree().get_root().get_node("Tabuleiro")!=null and get_tree().get_root().get_node("Tabuleiro").action(self)[1])
+		attack(get_tree().get_root().get_node("Game").get_node("Tabuleiro")!=null and get_tree().get_root().get_node("Tabuleiro").action(self)[1])
 func _ready():
 	pass
 func moveForAttack(dir):

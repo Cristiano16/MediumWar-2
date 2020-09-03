@@ -1,67 +1,46 @@
-extends KinematicBody2D
+extends Area2D
 
 var speed
 var damage
-var origin
-var target
-var angle
-var targetPosition
-var currentPosition
-var translation = Vector2(0.0,0.0)
+var origin = null
+var target = null
 
-func _ready():
+var velocity = Vector2.ZERO
+var acceleration = Vector2.ZERO
+export var steer_force = 50.0
+
+func _on_ProjectileMagic_body_entered(body):
 	pass # Replace with function body.
 
-#Verificar se isso funcionar, verificar a velocidade dado ao angulo
-func move_tween():
-	tween.interpolate_property(self, 'rotation', rotation, angle, 2, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	tween.interpolate_property(self, "position",
-		position, position + translation,
-		1.0/speed, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
+func start(originid, targetid):
+	print("start projectile")
+	damage=originid.damage
+	origin=originid
+	target=targetid
+	
+	var data = Transform2D(0,originid.position)
+	global_transform = data
+	print(data)
+	print(speed)
+	velocity=data.x*speed
 
-func track():
-	if(target.getDie!=false):
-		targetPosition=get_tree().get_root().get_node("Tabuleiro").tilemap.world_to_map(target.global_position)
-		if(targetPosition[0]-currentPosition[0]<0 and targetPosition[1]-currentPosition[1]<0):
-				translation[0]=-abs(((targetPosition[0]-currentPosition[0])/(targetPosition[1]-currentPosition[1])))
-				translation[1]=-abs(((targetPosition[1]-currentPosition[1])/(targetPosition[0]-currentPosition[0])))
-				
-		elif (targetPosition[0]-currentPosition[0]<0 and targetPosition[1]-currentPosition[1]>0):
-				translation[0]=-abs(((targetPosition[0]-currentPosition[0])/(targetPosition[1]-currentPosition[1])))
-				translation[1]=abs(((targetPosition[1]-currentPosition[1])/(targetPosition[0]-currentPosition[0])))
-				
-		elif(targetPosition[0]-currentPosition[0]>0 and targetPosition[1]-currentPosition[1]<0):
-				translation[0]=abs(((targetPosition[0]-currentPosition[0])/(targetPosition[1]-currentPosition[1])))
-				translation[1]=-abs(((targetPosition[1]-currentPosition[1])/(targetPosition[0]-currentPosition[0])))
-		
-		elif(targetPosition[0]-currentPosition[0]>0 and targetPosition[0]-currentPosition[0]>0):
-				translation[0]=abs(((targetPosition[0]-currentPosition[0])/(targetPosition[1]-currentPosition[1])))
-				translation[1]=abs(((targetPosition[1]-currentPosition[1])/(targetPosition[0]-currentPosition[0])))
+func _physics_process(delta):
+	acceleration += seek()
+	velocity += acceleration*delta
+	velocity = velocity.clamped(speed)
+	rotation = velocity.angle()
+	position += velocity*delta
+	
+func _on_Missile_body_entered(body):
+	print("colide")
+	set_physics_process(false)
+	target.receveDamage(damage)
+	print(target.life)
+	queue_free()
 
-		elif(targetPosition[0]-currentPosition[0]==0):
-				if(targetPosition[1]-currentPosition[1]>0):
-					translation[1]=1
-				else: 
-					translation[1]=-1
-				translation[0]=0;
-				
-		elif(targetPosition[1]-currentPosition[1]==0):
-				if(targetPosition[0]-currentPosition[0]>0):
-					translation[0]=speed
-				else:
-					translation[0]=-speed
-				translation[1]=0;
-		
-		angle=atan2(translation[1], translation[0])
-		var dist = sqrt(pow(translation[0],2)+pow(translation[1],2))
-		translation[0]=translation[0]*(speed/dist)
-		translation[1]=translation[1]*(speed/dist)
-		
-		move_tween()
-		#Não sei se é necessario
-		currentPosition[0]=currentPosition[0]+translation[0]
-		currentPosition[1]=currentPosition[1]+translation[1]
-		
-		#Verifica se colidiu
-		
+func seek():
+	var steer = Vector2.ZERO
+	if target:
+		var desired = (target.position - position).normalized() * speed
+		steer = (desired - velocity).normalized() * steer_force
+	return steer
